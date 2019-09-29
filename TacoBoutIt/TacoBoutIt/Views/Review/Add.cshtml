@@ -1,0 +1,23 @@
+﻿@model Review
+
+    <form asp-action="Add" method="post">
+        <input type="hidden" asp-for="ReviewId" />
+        <div>
+            <label asp-for="Restaurant"></label>
+            <input asp-for="Restaurant" />
+        </div>
+        <div>
+            Review
+            <input asp-for="ReviewText" />
+        </div>
+        <div>
+            Rating
+            <input type="range" min="1" max="10"  asp-for="Rating" />
+        </div>
+        <input type="hidden" asp-for="ImgUrl" />
+        <input type="hidden" asp-for="Username" />
+        <input type="hidden" asp-for="Location" />
+        <div>
+            <button type="submit">Add</button>
+        </div>
+    </form>
