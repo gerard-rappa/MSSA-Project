@@ -23,7 +23,7 @@ namespace TacoBoutIt.Controllers
             {
                 return RedirectToAction("List");
             }
-            repository.AddReview(review);
+            repository.Add(review);
             return RedirectToAction("List");
         }
     }

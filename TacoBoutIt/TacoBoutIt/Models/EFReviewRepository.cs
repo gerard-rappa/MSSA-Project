@@ -13,7 +13,7 @@ namespace TacoBoutIt.Models
         }
         public IQueryable<Review> Reviews => context.Reviews;
 
-        public void AddReview(Review review)
+        public void Add(Review review)
         {
             review.ImgUrl = "1";
             review.Location = "1";
