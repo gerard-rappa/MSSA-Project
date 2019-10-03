@@ -7,28 +7,25 @@ namespace TacoBoutIt.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Reviews",
+                name: "Memes",
                 columns: table => new
                 {
-                    ReviewId = table.Column<int>(nullable: false)
+                    MemeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Restaurant = table.Column<string>(nullable: true),
-                    Location = table.Column<string>(nullable: true),
-                    ReviewText = table.Column<string>(nullable: true),
-                    Rating = table.Column<int>(nullable: false),
                     ImgUrl = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: true)
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
+                    table.PrimaryKey("PK_Memes", x => x.MemeId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Reviews");
+                name: "Memes");
         }
     }
 }

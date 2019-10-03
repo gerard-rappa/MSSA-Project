@@ -3,27 +3,27 @@ using TacoBoutIt.Models;
 
 namespace TacoBoutIt.Controllers
 {
-    public class ReviewController: Controller
+    public class MemeController: Controller
     {
-        private IReviewRepository repository;
+        private IMemeRepository repository;
 
-        public ReviewController(IReviewRepository repo)
+        public MemeController(IMemeRepository repo)
         {
             repository = repo;
         }
 
-        public ViewResult List() => View(repository.Reviews);
+        public ViewResult List() => View(repository.Memes);
         
         public ViewResult Add()=>  View();
 
         [HttpPost]
-        public IActionResult Add(Review review)
+        public IActionResult Add(Meme meme)
         {
-            if (review.Restaurant == null || review.ReviewText == null)
+            if (meme.ImgUrl == null)
             {
                 return RedirectToAction("List");
             }
-            repository.Add(review);
+            repository.Add(meme);
             return RedirectToAction("List");
         }
     }

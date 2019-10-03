@@ -24,9 +24,9 @@ namespace TacoBoutIt
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration["Data:TacoBoutItReviews:ConnectionString"]));
-            //services.AddTransient<IReviewRepository, FakeReviewRepository>(); 
-            services.AddTransient<IReviewRepository, EFReviewRepository>();
+                    Configuration["Data:TacoBoutItMemes:ConnectionString"]));
+            //services.AddTransient<IMemeRepository, FakeMemeRepository>(); 
+            services.AddTransient<IMemeRepository, EFMemeRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
@@ -44,7 +44,7 @@ namespace TacoBoutIt
                 routes.MapRoute(
                     name: null,
                     template: "",
-                    defaults: new { controller = "Review", action = "List"}
+                    defaults: new { controller = "Meme", action = "List"}
                 );
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });

@@ -18,9 +18,9 @@ namespace TacoBoutIt.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TacoBoutIt.Models.Review", b =>
+            modelBuilder.Entity("TacoBoutIt.Models.Meme", b =>
                 {
-                    b.Property<int>("ReviewId")
+                    b.Property<int>("MemeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -28,24 +28,15 @@ namespace TacoBoutIt.Migrations
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
-                    b.Property<string>("Restaurant")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("MemeId");
 
-                    b.Property<string>("ReviewText")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReviewId");
-
-                    b.ToTable("Reviews");
+                    b.ToTable("Memes");
                 });
 #pragma warning restore 612, 618
         }

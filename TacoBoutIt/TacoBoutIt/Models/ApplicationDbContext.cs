@@ -7,6 +7,6 @@ namespace TacoBoutIt.Models
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Meme> Memes { get; set; }
     }
 }

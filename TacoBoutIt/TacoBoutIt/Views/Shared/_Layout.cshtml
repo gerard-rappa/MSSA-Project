@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>TacoBoutIt</title>
+    <title>Lit Memes</title>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <style>
         #map {
@@ -12,10 +12,22 @@
             background-color: grey;
         }
     </style>
+    <script>
+        navigator.geolocation.getCurrentPosition(userPosition);
+
+        function userPosition(position) {
+            var lat = position.coords.latitude;
+            document.getElementById("userLat").value = lat;
+            var long = position.coords.longitude;
+            document.getElementById("userLong").value = long;
+        }
+    </script>
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
+
+
 </body>
 </html>

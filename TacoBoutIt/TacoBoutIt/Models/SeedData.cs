@@ -13,35 +13,26 @@ namespace TacoBoutIt.Models
             ApplicationDbContext context = app.ApplicationServices
                 .GetRequiredService<ApplicationDbContext>();
             context.Database.Migrate();
-            if (!context.Reviews.Any())
+            if (!context.Memes.Any())
             {
-                context.Reviews.AddRange(                    
-                    new Review
+                context.Memes.AddRange(                    
+                    new Meme
                     {
-                        Restaurant = "La Casa de La Gritona",
-                        ReviewText = "Best tacos in the world",
-                        Rating = 10,
-                        Location = "Whatever google maps needs",
-                        Username = "a@a.com",
+                        Latitude = 71.0000,
+                        Longitude = 25.0000,
                         ImgUrl = "imgPath"
                     },
-                    new Review
+                    new Meme
                     {
-                        Restaurant = "Taco Bell",
-                        ReviewText = "...",
-                        Rating = 1,
-                        Location = "Whatever google maps needs",
-                        Username = "a@a.com",
-                        ImgUrl = "imgPath"
+                        Latitude = 71.0000,
+                        Longitude = 25.0000,
+                        ImgUrl = "imgPath2"
                     },
-                    new Review
+                    new Meme
                     {
-                        Restaurant = "Restaurant",
-                        ReviewText = "ReviewGoesHere",
-                        Rating = 0000,
-                        Location = "Whatever google maps needs",
-                        Username = "a@a.com",
-                        ImgUrl = "imgPath"
+                        Latitude = 71.0000,
+                        Longitude = 25.0000,
+                        ImgUrl = "imgPath3"
                     } 
                );
                 context.SaveChanges();

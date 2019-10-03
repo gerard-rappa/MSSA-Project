@@ -1,0 +1,22 @@
+﻿@model Meme
+
+
+
+
+
+    <form asp-action="Add" method="post">
+        <input type="hidden" asp-for="MemeId" />
+        <div>
+            <label asp-for="ImgUrl"></label>
+            <input asp-for="ImgUrl" />
+        </div>
+        <input type="hidden" asp-for="Latitude" id="userLat" value="" />
+        <input type="hidden" asp-for="Longitude" id="userLong" value="" />
+        <div>
+            <button type="submit">Add</button>
+        </div>
+    </form>
+
+
+
+
