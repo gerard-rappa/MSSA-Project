@@ -1,4 +1,6 @@
-﻿<h3>My Google Maps Demo</h3>
+﻿@model Review
+
+<h3>My Google Maps Demo</h3>
 <div class="p-5"><div id="map"></div></div>
 <script>
     var map;
@@ -7,6 +9,9 @@
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 6
+        });
+        google.maps.event.addListener(map, 'click', function(event) {
+             placeMarker(event.latLng);
         });
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -20,7 +25,15 @@
             map.setCenter(pos);
           });
         }
-      }
+    }
+    
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
+}
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBBSbNYenx3aUVJNQDujBpzACQcnJHfSg&callback=initMap">
