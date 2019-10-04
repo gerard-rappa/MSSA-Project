@@ -374,3 +374,4 @@ C:\Users\WWStudent\Desktop\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcorea
 C:\Users\WWStudent\Desktop\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.csprojAssemblyReference.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\Add.cshtml.g.cs
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\List.cshtml.g.cs
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\LocalList.cshtml.g.cs

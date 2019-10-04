@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using TacoBoutIt.Models;
 
 namespace TacoBoutIt.Controllers
@@ -12,8 +13,10 @@ namespace TacoBoutIt.Controllers
             repository = repo;
         }
 
-        public ViewResult List() => View(repository.Memes);
-        
+        public ViewResult List() => View(repository.Memes.OrderByDescending(x=> x));
+
+        public ViewResult LocalList(Location userLocation) => View(repository.LocalMemes(userLocation));
+
         public ViewResult Add()=>  View();
 
         [HttpPost]
@@ -25,6 +28,20 @@ namespace TacoBoutIt.Controllers
             }
             repository.Add(meme);
             return RedirectToAction("List");
+        }
+
+        [HttpPost]
+        public IActionResult LocalList(double Latitude, double Longitude)
+        {            
+            Location userLocation = new Location();
+            userLocation.Latitude = Latitude;
+            userLocation.Longitude = Longitude;
+            if (userLocation.Latitude == 0 && userLocation.Longitude == 0)
+            {
+                userLocation.Longitude = 73.086548;
+                userLocation.Latitude = 27.132481;
+            }
+            return RedirectToAction("LocalList", userLocation);
         }
     }
 }

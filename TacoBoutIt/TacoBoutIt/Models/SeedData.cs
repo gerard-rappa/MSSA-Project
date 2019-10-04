@@ -18,20 +18,20 @@ namespace TacoBoutIt.Models
                 context.Memes.AddRange(                    
                     new Meme
                     {
-                        Latitude = 71.0000,
-                        Longitude = 25.0000,
+                        Latitude = 27.132481,
+                        Longitude = 73.086548,
                         ImgUrl = "imgPath"
                     },
                     new Meme
                     {
-                        Latitude = 71.0000,
-                        Longitude = 25.0000,
+                        Latitude = 27.132481,
+                        Longitude = 73.086548,
                         ImgUrl = "imgPath2"
                     },
                     new Meme
                     {
-                        Latitude = 71.0000,
-                        Longitude = 25.0000,
+                        Latitude = 27.132481,
+                        Longitude = 73.086548,
                         ImgUrl = "imgPath3"
                     } 
                );

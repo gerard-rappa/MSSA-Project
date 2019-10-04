@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Meme>
+
+@foreach (var r in Model)
+{
+    <div>
+        <h5>@r.ImgUrl</h5>
+        <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
+    </div>
+}
+<span>
+    <a type="submit" asp-controller="Meme" asp-action="Add">Add Meme</a>
+</span>

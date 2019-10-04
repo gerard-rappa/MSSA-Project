@@ -1,10 +1,5 @@
 ﻿@model IEnumerable<Meme>
 
-
-<div>
-    <a type="submit"  asp-controller="Map" asp-action="Index">Map</a>
-</div>
-<br />
 @foreach (var r in Model)
 {
     <div>
@@ -12,6 +7,12 @@
         <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
     </div>
 }
-<div>
-    <a type="submit"  asp-controller="Meme" asp-action="Add">Add Review</a>
-</div>
+<span>
+    <a type="submit"  asp-controller="Meme" asp-action="Add">Add Meme</a>
+</span>
+
+<form asp-controller="Meme" asp-action="LocalList" method="post">
+    <input type="hidden" id="Latitude" name="Latitude" value="" />
+    <input type="hidden" id="Longitude" name="Longitude" value="" />
+    <button type="submit">Local Memes</button>
+</form>
