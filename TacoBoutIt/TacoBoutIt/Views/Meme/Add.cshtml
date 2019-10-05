@@ -1,13 +1,12 @@
 ﻿@model Meme
 
-    <form asp-action="Add" method="post">
+    <form asp-action="Add" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="MemeId" />
         <div>
-            <label asp-for="ImgUrl"></label>
-            <input asp-for="ImgUrl" />
+            <input type="file" id="userImg" name="userImg" value=""/>
         </div>
-        <input  asp-for="Latitude" id="Latitude" value="" />
-        <input  asp-for="Longitude" id="Longitude" value="" />
+        <input type="hidden"  asp-for="Latitude" id="Latitude" value="" />
+        <input type="hidden" asp-for="Longitude" id="Longitude" value="" />
         <div>
             <button type="submit">Add</button>
         </div>

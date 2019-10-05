@@ -2,9 +2,10 @@
 
 @foreach (var r in Model)
 {
-    <div>
-        <h5>@r.ImgUrl</h5>
+    <div>        
+        <img src="~/Images/@r.ImgUrl" />        
         <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
+        <br /><br />
     </div>
 }
 <span>

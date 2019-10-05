@@ -29,6 +29,9 @@
     <None Include="wwwroot\css\bootstrap.css.map" />
     <None Include="wwwroot\css\bootstrap.min.css" />
     <None Include="wwwroot\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Images\default1.jpg" />
+    <None Include="wwwroot\Images\default2.jpg" />
+    <None Include="wwwroot\Images\default3.png" />
     <None Include="wwwroot\js\bootstrap.bundle.js" />
     <None Include="wwwroot\js\bootstrap.bundle.js.map" />
     <None Include="wwwroot\js\bootstrap.bundle.min.js" />

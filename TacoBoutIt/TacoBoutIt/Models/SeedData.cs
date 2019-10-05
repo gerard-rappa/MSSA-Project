@@ -19,20 +19,20 @@ namespace TacoBoutIt.Models
                     new Meme
                     {
                         Latitude = 27.132481,
-                        Longitude = 73.086548,
-                        ImgUrl = "imgPath"
+                        Longitude = -73.086548,
+                        ImgUrl = "default1.jpg"
                     },
                     new Meme
                     {
                         Latitude = 27.132481,
-                        Longitude = 73.086548,
-                        ImgUrl = "imgPath2"
+                        Longitude = -73.086548,
+                        ImgUrl = "default2.jpg"
                     },
                     new Meme
                     {
-                        Latitude = 27.132481,
-                        Longitude = 73.086548,
-                        ImgUrl = "imgPath3"
+                        Latitude = 32.911587,
+                        Longitude = -117.151517,
+                        ImgUrl = "default3.png"
                     } 
                );
                 context.SaveChanges();
