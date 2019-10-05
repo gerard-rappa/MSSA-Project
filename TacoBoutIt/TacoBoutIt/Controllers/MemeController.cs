@@ -23,20 +23,23 @@ namespace TacoBoutIt.Controllers
         public ViewResult Add()=>  View();
 
         [HttpPost]
-        public IActionResult Add(Meme meme)
+        public IActionResult Add(double Latitude, double Longitude)
         {
-            var file = HttpContext.Request.Form.Files;
+            Meme meme = new Meme();
+            meme.Latitude = Latitude;
+            meme.Longitude = Longitude;
+            var files = HttpContext.Request.Form.Files;
             string path = "wwwroot/Images/";
             string extension = "";
-            if (file.Count == 0)
+            if (files.Count == 0)
             {
                 return RedirectToAction("List");
             }            
             //gets extension from uploaded file and adds it to unique image path
-            for (int i = file[0].FileName.Length - 1; i > 0; i--)
+            for (int i = files[0].FileName.Length - 1; i > 0; i--)
             {
-                extension = file[0].FileName[i].ToString() + extension;
-                if (file[0].FileName[i] == '.')
+                extension = files[0].FileName[i].ToString() + extension;
+                if (files[0].FileName[i] == '.')
                 {
                     break;
                 }
@@ -45,7 +48,7 @@ namespace TacoBoutIt.Controllers
             path += meme.ImgUrl;
             using (var fileStream = new FileStream(path, FileMode.Create))
             {
-                file[0].CopyTo(fileStream);
+                files[0].CopyTo(fileStream);
             }
             repository.Add(meme);
             return RedirectToAction("List");

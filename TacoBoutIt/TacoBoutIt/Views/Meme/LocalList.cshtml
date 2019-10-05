@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<Meme>
 
+    @*<span>
+        <a type="submit" asp-controller="Meme" asp-action="Add">Add Meme</a>
+    </span>*@
+
+    
+
 @foreach (var r in Model)
 {
-    <div>
-        <img src="~/Images/@r.ImgUrl" />
-        <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
+    <div class="text-center pl-5 pr-5 pb-5 pt-0">
+        <img class="img-fluid pr-5 pl-5 ml-5 mr-5" src="~/Images/@r.ImgUrl" />
+        <p style="align-content:center">Latitude: @r.Latitude & Longitude: @r.Longitude</p>
         <br /><br />
     </div>
 }
-<span>
-    <a type="submit" asp-controller="Meme" asp-action="Add">Add Meme</a>
-</span>

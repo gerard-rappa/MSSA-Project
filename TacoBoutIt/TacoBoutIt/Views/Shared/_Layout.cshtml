@@ -2,14 +2,34 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>Lit Memes</title>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
         #map {
             width: 100%;
             height: 800px;
             background-color: grey;
+        }
+
+        .bg-navbar {
+            background-color: #b7fff2
+        }
+
+        .bg-list {
+            background-color: #91ffff
+        }
+
+        body {
+            max-width: 100%;
+        }
+
+        .navbar-default {
+            max-width: 100%;
         }
     </style>
     <script>
@@ -20,11 +40,64 @@
             document.getElementById("Latitude").value = lat;
             var long = position.coords.longitude;
             document.getElementById("Longitude").value = long;
+
+            var lata = position.coords.latitude;
+            document.getElementById("LatitudeA").value = lat;
+            var longa = position.coords.longitude;
+            document.getElementById("LongitudeA").value = long;
         }
     </script>
 </head>
-<body>
-    <div>
+<body class="bg-list" style="margin-top:55px">
+    <nav class="navbar mw-100 fixed-top bg-navbar rounded-bottom">
+
+        <a class="navbar-brand" href="../">Home</a>
+
+        <form class="form-inline" asp-controller="Meme" asp-action="LocalList" method="post">
+            <input type="hidden" id="Latitude" name="Latitude" value="" />
+            <input type="hidden" id="Longitude" name="Longitude" value="" />
+            <button class="btn" type="submit">Local Memes</button>
+        </form>
+
+        <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
+            Add Meme
+        </button>
+
+
+    </nav>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add Meme</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="Add" method="post" enctype="multipart/form-data">
+
+                        <span>
+                            <input class="btn" type="file" id="userImg" name="userImg" value="" accept="image/*" />
+                        </span>
+
+                        <input type="hidden" name="Latitude" id="LatitudeA" value="" />
+                        <input type="hidden" name="Longitude" id="LongitudeA" value="" />
+
+                        <button type="submit" class="btn btn-primary">Add</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="align-content:center">
         @RenderBody()
     </div>
 </body>

@@ -2,18 +2,10 @@
 
 @foreach (var r in Model)
 {
-    <div>        
-        <img src="~/Images/@r.ImgUrl" />        
+    <div class="text-center">
+        <img class="img-fluid pr-5 pl-5 ml-5 mr-5" src="~/Images/@r.ImgUrl" />
         <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
         <br /><br />
     </div>
 }
-<span>
-    <a type="submit"  asp-controller="Meme" asp-action="Add">Add Meme</a>
-</span>
 
-<form asp-controller="Meme" asp-action="LocalList" method="post">
-    <input type="hidden" id="Latitude" name="Latitude" value="" />
-    <input type="hidden" id="Longitude" name="Longitude" value="" />
-    <button type="submit">Local Memes</button>
-</form>
