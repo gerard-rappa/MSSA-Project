@@ -1,7 +1,3 @@
 # MSSA-Project
- 
-No front end anything yet.
 
-This is the start of a web app.
-
-So far it can retrieve data from, and post data to, a database
+This is the start of a web app where anyone can upload memes to a site, and it can be filtered by only those posted nearby.
