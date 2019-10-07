@@ -2,10 +2,21 @@
 
 @foreach (var r in Model)
 {
-    <div class="text-center">
-        <img class="img-fluid pr-5 pl-5 ml-5 mr-5" src="~/Images/@r.ImgUrl" />
-        <p>Latitude: @r.Latitude & Longitude: @r.Longitude</p>
-        <br /><br />
-    </div>
+    if (r.ImgUrl.Contains(".webm"))
+    {
+        <div class="flex-fill p-2" style="text-align:center; width:100%">
+            <video controls class="img-fluid" type="video/webm" style="max-width:500px; width:100%" src="~/Images/@r.ImgUrl"></video>
+            <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
+            <br /><br />
+        </div>
+    }
+    else
+    {
+        <div class="flex-fill p-2" style="text-align:center; width:100%">
+            <img class="img-fluid rounded" style="max-width:500px; width:100%" src="~/Images/@r.ImgUrl" />
+            <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
+            <br /><br />
+        </div>
+    }
 }
 

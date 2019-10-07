@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TacoBoutIt.Models
+﻿namespace TacoBoutIt.Models
 {
     public class Location
     {

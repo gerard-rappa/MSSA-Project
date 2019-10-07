@@ -35,7 +35,8 @@ namespace TacoBoutIt.Controllers
             {
                 return RedirectToAction("List");
             }            
-            //gets extension from uploaded file and adds it to unique image path
+            // Gets extension from uploaded file and adds it to unique image path
+            // I need to filter out everything that isnt an image here
             for (int i = files[0].FileName.Length - 1; i > 0; i--)
             {
                 extension = files[0].FileName[i].ToString() + extension;
