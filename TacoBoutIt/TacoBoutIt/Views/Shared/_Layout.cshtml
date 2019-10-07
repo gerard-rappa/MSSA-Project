@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Lit Memes</title>
+    <title>Meme Me</title>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -52,17 +52,17 @@
 
     <nav class="navbar mw-100 fixed-top navbar-expand-lg navbar-expand-md bg-navbar rounded-bottom" >
         @*Home Button*@
-        <a class="navbar-brand" href="../">Lit Memes</a>
+        <a class="navbar-brand" href="../">Meme Me</a>
         @*Toggle Button*@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><img style="max-height:100%" src="~/Images/btn.png" /></span>
         </button>
         @*Collapsable parts*@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-
+            
             <form class="form-inline"  asp-controller="Meme" asp-action="LocalList" method="post">
-                <input type="hidden" id="Latitude" name="Latitude" value="" />
-                <input type="hidden" id="Longitude" name="Longitude" value="" />
+                <input type="hidden" id="Latitude" name="Latitude"  />
+                <input type="hidden" id="Longitude" name="Longitude" />
                 <button class="btn" type="submit">Local Memes</button>
             </form> 
 
@@ -91,8 +91,8 @@
                             <input class="btn" type="file" id="userImg" name="userImg" value="" accept="image/*" />
                         </span>
 
-                        <input type="hidden" name="Latitude" id="LatitudeA" value="" />
-                        <input type="hidden" name="Longitude" id="LongitudeA" value="" />
+                        <input type="hidden" name="Latitude" id="LatitudeA" />
+                        <input type="hidden" name="Longitude" id="LongitudeA" />
 
                         <button type="submit" class="btn btn-primary">Add</button>
 

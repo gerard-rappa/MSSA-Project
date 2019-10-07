@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
 using System;
 using System.IO;
 using System.Linq;
@@ -35,8 +34,10 @@ namespace TacoBoutIt.Controllers
             {
                 return RedirectToAction("List");
             }            
+            ///////////////////////////////////////////////////////////////////////
             // Gets extension from uploaded file and adds it to unique image path
-            // I need to filter out everything that isnt an image here
+            // Only accepts jpg, png, gif, and webm as of right now
+            ///////////////////////////////////////////////////////////////////////
             for (int i = files[0].FileName.Length - 1; i > 0; i--)
             {
                 extension = files[0].FileName[i].ToString() + extension;
@@ -45,13 +46,17 @@ namespace TacoBoutIt.Controllers
                     break;
                 }
             }
-            meme.ImgUrl = Guid.NewGuid().ToString() + extension;
-            path += meme.ImgUrl;
-            using (var fileStream = new FileStream(path, FileMode.Create))
+            extension = extension.ToLower();
+            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".gif" || extension == ".webm")
             {
-                files[0].CopyTo(fileStream);
+                meme.ImgUrl = Guid.NewGuid().ToString() + extension;
+                path += meme.ImgUrl;
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+                repository.Add(meme);
             }
-            repository.Add(meme);
             return RedirectToAction("List");
         }
 
