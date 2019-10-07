@@ -7,5 +7,6 @@ namespace TacoBoutIt.Models
         IQueryable<Meme> Memes { get; }
         IQueryable<Meme> LocalMemes(Location userLocation);
         void Add(Meme meme);
+        Meme DeleteMeme(string memeUrl);
     }
 }

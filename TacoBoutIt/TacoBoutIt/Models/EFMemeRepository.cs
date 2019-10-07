@@ -10,7 +10,9 @@ namespace TacoBoutIt.Models
         {
             context = ctx;
         }
-        public IQueryable<Meme> Memes => context.Memes;
+        //As of right now, home page just takes the 30 most recent memes.
+        //Maybe add pagination?
+        public IQueryable<Meme> Memes => context.Memes.Take(30);
         public IQueryable<Meme> LocalMemes(Location userLocation) => context.Memes.Where(x => x.Longitude <= userLocation.Longitude + 1 &&
                                                                                              x.Longitude >= userLocation.Longitude - 1 &&
                                                                                              x.Latitude <= userLocation.Latitude + 1 &&
@@ -25,6 +27,17 @@ namespace TacoBoutIt.Models
             }
             context.Memes.Add(meme);
             context.SaveChanges();
+        }
+
+        public Meme DeleteMeme(string memeUrl)
+        {
+            Meme dbEntry = context.Memes.FirstOrDefault(p => p.ImgUrl.Equals(memeUrl));
+            if (dbEntry != null)
+            {
+                context.Memes.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
         }
     }
 }

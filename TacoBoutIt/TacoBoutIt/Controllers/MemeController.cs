@@ -46,6 +46,7 @@ namespace TacoBoutIt.Controllers
                     break;
                 }
             }
+            //checks for acceptable extensions
             extension = extension.ToLower();
             if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".gif" || extension == ".webm")
             {
