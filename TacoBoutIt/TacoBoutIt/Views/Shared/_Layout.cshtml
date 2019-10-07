@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <style>
         #map {
             width: 100%;
@@ -47,26 +48,33 @@
         }
     </script>
 </head>
-<body class="bg-list " style="margin-top:55px;">
-    <nav class="navbar mw-100 fixed-top bg-navbar rounded-bottom">
+<body class="bg-list" style="margin-top:55px;">
 
-        <a class="navbar-brand" href="../">Home</a>
-
-        <form class="form-inline" asp-controller="Meme" asp-action="LocalList" method="post">
-            <input type="hidden" id="Latitude" name="Latitude" value="" />
-            <input type="hidden" id="Longitude" name="Longitude" value="" />
-            <button class="btn" type="submit">Local Memes</button>
-        </form>
-
-        <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
-            Add Meme
+    <nav class="navbar mw-100 fixed-top navbar-expand-lg navbar-expand-md bg-navbar rounded-bottom" >
+        @*Home Button*@
+        <a class="navbar-brand" href="../">Lit Memes</a>
+        @*Toggle Button*@
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img style="max-height:100%" src="~/Images/btn.png" /></span>
         </button>
+        @*Collapsable parts*@
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
+            <form class="form-inline"  asp-controller="Meme" asp-action="LocalList" method="post">
+                <input type="hidden" id="Latitude" name="Latitude" value="" />
+                <input type="hidden" id="Longitude" name="Longitude" value="" />
+                <button class="btn" type="submit">Local Memes</button>
+            </form> 
 
+            <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
+                Add Meme
+            </button>
+
+        </div>
     </nav>
 
 
-    <!-- Modal -->
+    @*Add Modal*@
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -94,10 +102,8 @@
         </div>
     </div>
 
-
-
     <div style="text-align:center;  overflow:hidden">
         @RenderBody()
-    </div>
+    </div>   
 </body>
 </html>

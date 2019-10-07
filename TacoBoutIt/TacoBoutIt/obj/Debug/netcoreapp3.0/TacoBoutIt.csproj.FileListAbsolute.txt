@@ -490,7 +490,6 @@ C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.TagHelpers.output.cache
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.RazorCoreGenerate.cache
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Map\Index.cshtml.g.cs
-C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\Add.cshtml.g.cs
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\List.cshtml.g.cs
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Meme\LocalList.cshtml.g.cs
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
