@@ -353,7 +353,6 @@ C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\staticwebassets\TacoBoutIt.StaticWebAssets.Manifest.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\staticwebassets\TacoBoutIt.StaticWebAssets.xml
-C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.RazorAssemblyInfo.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.RazorAssemblyInfo.cs
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.AssemblyInfoInputs.cache
@@ -501,3 +500,5 @@ C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.dll
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.pdb
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Microsoft.WindowsAzure.Storage.dll

@@ -4,6 +4,15 @@ using System.IO;
 using System.Linq;
 using TacoBoutIt.Models;
 
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
 namespace TacoBoutIt.Controllers
 {
     public class MemeController: Controller
@@ -22,18 +31,22 @@ namespace TacoBoutIt.Controllers
         public ViewResult Add()=>  View();
 
         [HttpPost]
-        public IActionResult Add(double Latitude, double Longitude)
+        [RequestSizeLimit(10000000)]
+        public async Task<IActionResult> AddAsync(double Latitude, double Longitude)
         {
             Meme meme = new Meme();
             meme.Latitude = Latitude;
             meme.Longitude = Longitude;
             var files = HttpContext.Request.Form.Files;
+            bool uploadSuccess = false;
+            string uploadedUri = null;
+
             string path = "wwwroot/Images/";
             string extension = "";
             if (files.Count == 0)
             {
                 return RedirectToAction("List");
-            }            
+            }
             ///////////////////////////////////////////////////////////////////////
             // Gets extension from uploaded file and adds it to unique image path
             // Only accepts jpg, png, gif, and webm as of right now
@@ -52,14 +65,82 @@ namespace TacoBoutIt.Controllers
             {
                 meme.ImgUrl = Guid.NewGuid().ToString() + extension;
                 path += meme.ImgUrl;
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                using (var stream = files[0].OpenReadStream())
                 {
-                    files[0].CopyTo(fileStream);
+                    (uploadSuccess, uploadedUri) = await UploadToBlob(meme.ImgUrl, null, stream);
+                    TempData["uploadedUri"] = uploadedUri;
                 }
+
                 repository.Add(meme);
             }
             return RedirectToAction("List");
         }
+
+
+        private async Task<(bool, string)> UploadToBlob(string filename, byte[] imageBuffer = null, Stream stream = null)
+        {
+            CloudStorageAccount storageAccount = null;
+            CloudBlobContainer cloudBlobContainer = null;
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=litmemes;AccountKey=ruUZfkyHWwNAc3Od+6wo+Ke4izeKi94dO7hKcoEBLX3Pp8kiFsrNiwIGo1qO7P46e/Nkbg50YsoTcw3FdLwm0w==;EndpointSuffix=core.windows.net";
+
+            // Check whether the connection string can be parsed.
+            if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+            {
+                try
+                {
+                    // Create the CloudBlobClient that represents the Blob storage endpoint
+                    CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
+
+                    // Add to images container 
+                    cloudBlobContainer = cloudBlobClient.GetContainerReference("images");
+
+                    // Set the permissions so the blobs are public. 
+                    BlobContainerPermissions permissions = new BlobContainerPermissions
+                    {
+                        PublicAccess = BlobContainerPublicAccessType.Blob
+                    };
+                    await cloudBlobContainer.SetPermissionsAsync(permissions);
+
+                    // Get a reference to the blob address, then upload the file to the blob.
+                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
+
+                    if (imageBuffer != null)
+                    {
+                        // OPTION A: use imageBuffer (converted from memory stream)
+                        await cloudBlockBlob.UploadFromByteArrayAsync(imageBuffer, 0, imageBuffer.Length);
+                    }
+                    else if (stream != null)
+                    {
+                        // OPTION B: pass in memory stream directly
+                        await cloudBlockBlob.UploadFromStreamAsync(stream);
+                    }
+                    else
+                    {
+                        return (false, null);
+                    }
+
+                    return (true, cloudBlockBlob.SnapshotQualifiedStorageUri.PrimaryUri.ToString());
+                }
+                catch (StorageException ex)
+                {
+                    return (false, null);
+                }
+                finally
+                {
+                    // OPTIONAL: Clean up resources, e.g. blob container
+                    //if (cloudBlobContainer != null)
+                    //{
+                    //    await cloudBlobContainer.DeleteIfExistsAsync();
+                    //}
+                }
+            }
+            else
+            {
+                return (false, null);
+            }
+
+        }
+
 
         [HttpPost]
         public IActionResult LocalList(double Latitude, double Longitude)

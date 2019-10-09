@@ -12,19 +12,21 @@
     </tr>   
     @foreach (var item in Model)
     {
-<tr>
-    <td class="text-right">@item.MemeId</td>
-    <td><img class="img-fluid rounded" style="max-width:200px; width:100%" src="~/Images/@item.ImgUrl" /></td>
-    <td class="text-right">@item.Latitude</td>
-    <td class="text-right">@item.Longitude</td>
-    <td class="text-center">
-        <form asp-action="Delete" method="post">
-            <input type="hidden" name="memeUrl" value="@item.ImgUrl" />
-            <button type="submit" class="btn btn-danger btn-sm">
-                Delete
-            </button>
-        </form>
-    </td>
-</tr>
+        <tr>
+            <td class="text-right">@item.MemeId</td>
+            <td>
+                    <img class="img-fluid rounded" style="max-width:200px; width:100%" src="https://litmemes.blob.core.windows.net/images/@item.ImgUrl" />                
+            </td>
+            <td class="text-right">@item.Latitude</td>
+            <td class="text-right">@item.Longitude</td>
+            <td class="text-center">
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="memeUrl" value="@item.ImgUrl" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
      }
 </table>

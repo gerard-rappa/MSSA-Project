@@ -5,7 +5,7 @@
     if (r.ImgUrl.Contains(".webm"))
     {
         <div class="flex-fill px-4" style="text-align:center; width:100%">
-            <video controls class="img-fluid" type="video/webm" style="max-width:500px; width:100%" src="~/Images/@r.ImgUrl"></video>
+            <video controls class="img-fluid" type="video/webm" style="max-width:500px; width:100%" src="https://litmemes.blob.core.windows.net/images/@r.ImgUrl"></video>
             <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
             <br />
         </div>
@@ -13,7 +13,7 @@
     else
     {
         <div class="flex-fill px-4" style="text-align:center; width:100%">
-            <img class="img-fluid rounded" style="max-width:500px; width:100%" src="~/Images/@r.ImgUrl" />
+            <img class="img-fluid rounded" style="max-width:500px; width:100%" src="https://litmemes.blob.core.windows.net/images/@r.ImgUrl" />
             <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
             <br />
         </div>
