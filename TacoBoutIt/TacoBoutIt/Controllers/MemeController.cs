@@ -48,26 +48,26 @@ namespace TacoBoutIt.Controllers
                 return RedirectToAction("List");
             }
             ///////////////////////////////////////////////////////////////////////
-            // Gets extension from uploaded file and adds it to unique image path
+            // Gets extension from uploaded file and adds it to uniquely generated image path
             // Only accepts jpg, png, gif, and webm as of right now
             ///////////////////////////////////////////////////////////////////////
             for (int i = files[0].FileName.Length - 1; i > 0; i--)
             {
-                extension = files[0].FileName[i].ToString() + extension;
                 if (files[0].FileName[i] == '.')
                 {
                     break;
                 }
+                extension = files[0].FileName[i].ToString() + extension;                
             }
             //checks for acceptable extensions
             extension = extension.ToLower();
-            if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".gif" || extension == ".webm")
+            if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "gif" || extension == "webm")
             {
-                meme.ImgUrl = Guid.NewGuid().ToString() + extension;
+                meme.ImgUrl = Guid.NewGuid().ToString() + "." + extension;
                 path += meme.ImgUrl;
                 using (var stream = files[0].OpenReadStream())
                 {
-                    (uploadSuccess, uploadedUri) = await UploadToBlob(meme.ImgUrl, null, stream);
+                    (uploadSuccess, uploadedUri) = await UploadToBlob(meme.ImgUrl,stream, extension);
                     TempData["uploadedUri"] = uploadedUri;
                 }
 
@@ -77,7 +77,7 @@ namespace TacoBoutIt.Controllers
         }
 
 
-        private async Task<(bool, string)> UploadToBlob(string filename, byte[] imageBuffer = null, Stream stream = null)
+        private async Task<(bool, string)> UploadToBlob(string filename, Stream stream = null, string extension="")
         {
             CloudStorageAccount storageAccount = null;
             CloudBlobContainer cloudBlobContainer = null;
@@ -104,14 +104,18 @@ namespace TacoBoutIt.Controllers
                     // Get a reference to the blob address, then upload the file to the blob.
                     CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(filename);
 
-                    if (imageBuffer != null)
+                    
+                    if (stream != null)
                     {
-                        // OPTION A: use imageBuffer (converted from memory stream)
-                        await cloudBlockBlob.UploadFromByteArrayAsync(imageBuffer, 0, imageBuffer.Length);
-                    }
-                    else if (stream != null)
-                    {
-                        // OPTION B: pass in memory stream directly
+                        // Pass in memory stream directly
+                        if (extension.Equals("webm"))
+                        {
+                            cloudBlockBlob.Properties.ContentType = "video/" + extension;
+                        }
+                        else
+                        {
+                            cloudBlockBlob.Properties.ContentType = "image/" + extension;
+                        }
                         await cloudBlockBlob.UploadFromStreamAsync(stream);
                     }
                     else
@@ -124,14 +128,6 @@ namespace TacoBoutIt.Controllers
                 catch (StorageException ex)
                 {
                     return (false, null);
-                }
-                finally
-                {
-                    // OPTIONAL: Clean up resources, e.g. blob container
-                    //if (cloudBlobContainer != null)
-                    //{
-                    //    await cloudBlobContainer.DeleteIfExistsAsync();
-                    //}
                 }
             }
             else
