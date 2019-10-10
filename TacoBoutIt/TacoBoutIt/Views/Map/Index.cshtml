@@ -23,8 +23,14 @@
               };
               var marker = new google.maps.Marker({ position: uluru, map: map });
               uluru = { lat: -29.344, lng: 31.036 };    
-              marker = new google.maps.Marker({position: uluru, map: map});
-            map.setCenter(pos);
+              marker = new google.maps.Marker({ position: uluru, map: map });
+              uluru = { lat: -27.344, lng: 45.036 };
+              marker = new google.maps.Marker({ position: uluru, map: map });
+              map.setCenter(pos);
+              for (var i = 0; i < 10; i++) {
+                  uluru = { lat: i, lng: 45.036 };
+                  marker = new google.maps.Marker({ position: uluru, map: map });
+              }
           });
         }
     }
