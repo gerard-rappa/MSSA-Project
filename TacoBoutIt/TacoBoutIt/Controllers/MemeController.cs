@@ -3,14 +3,9 @@ using System;
 using System.IO;
 using System.Linq;
 using TacoBoutIt.Models;
-
-
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace TacoBoutIt.Controllers
