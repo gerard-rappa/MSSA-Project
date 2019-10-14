@@ -41,7 +41,6 @@ namespace TacoBoutIt.Controllers
             bool uploadSuccess = false;
             string uploadedUri = null;
 
-            string path = "wwwroot/Images/";
             string extension = "";
             if (files.Count == 0)
             {
@@ -64,7 +63,6 @@ namespace TacoBoutIt.Controllers
             if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "gif" || extension == "webm")
             {
                 meme.ImgUrl = Guid.NewGuid().ToString() + "." + extension;
-                path += meme.ImgUrl;
                 using (var stream = files[0].OpenReadStream())
                 {
                     (uploadSuccess, uploadedUri) = await UploadToBlob(meme.ImgUrl,stream, extension);
