@@ -12,7 +12,7 @@ namespace TacoBoutIt.Models
         }
         //As of right now, home page just takes the 30 most recent memes.
         //Maybe add pagination?
-        public IQueryable<Meme> Memes => context.Memes.Take(30);
+        public IQueryable<Meme> Memes => context.Memes.Take(250);
         public IQueryable<Meme> LocalMemes(Location userLocation) => context.Memes.Where(x => x.Longitude <= userLocation.Longitude + 1 &&
                                                                                              x.Longitude >= userLocation.Longitude - 1 &&
                                                                                              x.Latitude <= userLocation.Latitude + 1 &&
