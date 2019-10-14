@@ -372,7 +372,6 @@ C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.csproj.CopyComplete
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.dll
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.pdb
-C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.csprojAssemblyReference.cache
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\appsettings.json
@@ -500,5 +499,7 @@ C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.dll
 C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.pdb
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Admin\Index.cshtml.g.cs
-C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Microsoft.WindowsAzure.Storage.dll
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs

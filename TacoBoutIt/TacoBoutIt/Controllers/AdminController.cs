@@ -10,9 +10,11 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TacoBoutIt.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IMemeRepository repository;
