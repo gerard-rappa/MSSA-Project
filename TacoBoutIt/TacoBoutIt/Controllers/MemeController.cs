@@ -139,8 +139,8 @@ namespace TacoBoutIt.Controllers
             userLocation.Longitude = Longitude;
             if (userLocation.Latitude == 0 && userLocation.Longitude == 0)
             {
-                userLocation.Longitude = -73.086548;
-                userLocation.Latitude = 27.132481;
+                userLocation.Longitude = -71.0;
+                userLocation.Latitude = 25.0;
             }
             return RedirectToAction("LocalList", userLocation);
         }
