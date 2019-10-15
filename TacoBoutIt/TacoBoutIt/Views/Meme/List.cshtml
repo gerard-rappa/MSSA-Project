@@ -6,7 +6,7 @@
     {
         <div class="flex-fill px-4" style="text-align:center; width:100%">
             <video controls class="img-fluid" type="video/webm" style="max-width:650px; width:100%" src="https://litmemes.blob.core.windows.net/images/@r.ImgUrl"></video>
-            <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
+            <p class="container-fluid font-weight-light">Latitude: @Math.Round(r.Latitude, 2) <br> @Math.Round(r.Longitude, 2)</p>
             <br />
         </div>
     }
@@ -14,7 +14,7 @@
     {
         <div class="flex-fill px-4" style="text-align:center; width:100%">
             <img class="img-fluid rounded" style="max-width:650px; width:100%" src="https://litmemes.blob.core.windows.net/images/@r.ImgUrl" />
-            <p class="container-fluid font-weight-light">Latitude: @r.Latitude <br>Longitude: @r.Longitude</p>
+            <p class="container-fluid font-weight-light">Latitude: @Math.Round(r.Latitude, 2) <br>Longitude: @Math.Round(r.Longitude, 2)</p>
             <br />
         </div>
     }
