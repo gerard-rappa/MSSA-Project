@@ -38,6 +38,43 @@
         .navbar-default {
             max-width: 100%;
         }
+        .slidecontainer {
+          width: 100%;
+        }
+
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 15px;
+          border-radius: 5px;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+
+        .slider:hover {
+          opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #007BFC;
+          cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #4CAF50;
+          cursor: pointer;
+        }
     </style>
     <script>
         navigator.geolocation.getCurrentPosition(userPosition);
@@ -57,7 +94,7 @@
 </head>
 <body class="bg-list" style="margin-top:55px;">
 
-    <nav class="navbar mw-100 fixed-top navbar-expand-lg navbar-expand-md bg-navbar rounded-bottom" >
+    <nav class="navbar mw-100 fixed-top navbar-expand-lg navbar-expand-md bg-navbar rounded-bottom">
         @*Home Button*@
         <a class="navbar-brand" href="../">Meme Me</a>
         @*Toggle Button*@
@@ -66,12 +103,10 @@
         </button>
         @*Collapsable parts*@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            
-            <form class="form-inline"  asp-controller="Meme" asp-action="LocalList" method="post">
-                <input type="hidden" id="Latitude" name="Latitude"  />
-                <input type="hidden" id="Longitude" name="Longitude" />
-                <button class="btn" type="submit">Local Memes</button>
-            </form> 
+
+            <button type="button" class="btn" data-toggle="modal" data-target="#localModal">
+                Local Memes
+            </button>
 
             <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
                 Add Meme
@@ -79,6 +114,39 @@
 
         </div>
     </nav>
+
+    @*Local Modal*@
+    <div class="modal fade" id="localModal" tabindex="-1" role="dialog" aria-labelledby="localModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="localModalLabel">Local Memes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-inline" asp-controller="Meme" asp-action="LocalList" method="post">
+                        <input type="hidden" id="Latitude" name="Latitude" />
+                        <input type="hidden" id="Longitude" name="Longitude" />
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="miles">
+                        <div class="mt-3">Miles: <span id="demo"></span></div>
+                        <div style="margin-left:auto; margin-right:0;"><button class="btn btn-primary mt-3" type="submit">Go</button></div>
+                    </form>
+                    <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     @*Add Modal*@
@@ -111,6 +179,6 @@
 
     <div style="text-align:center;  overflow:hidden">
         @RenderBody()
-    </div>   
+    </div>
 </body>
 </html>
