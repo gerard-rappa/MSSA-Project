@@ -17,8 +17,10 @@ namespace TacoBoutIt.Models
         public IQueryable<Meme> LocalMemes(Location userLocation)
         {
 
-            const double radiusEarthMiles = 3958.762079;
-            var distRatio = userLocation.Range / radiusEarthMiles;
+            //const double radiusEarthMiles = 3958.762079;
+            const double radiusEarthMeters = 6371000;
+            double distanceInStoneThrows = userLocation.Range * 44.024075;
+            var distRatio = distanceInStoneThrows / radiusEarthMeters;
             var distRatioSine = Math.Sin(distRatio);
             var distRatioCosine = Math.Cos(distRatio);
 
