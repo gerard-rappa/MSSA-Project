@@ -76,21 +76,7 @@
           cursor: pointer;
         }
     </style>
-    <script>
-        navigator.geolocation.getCurrentPosition(userPosition);
 
-        function userPosition(position) {
-            var lat = position.coords.latitude;
-            document.getElementById("Latitude").value = lat;
-            var long = position.coords.longitude;
-            document.getElementById("Longitude").value = long;
-
-            var lata = position.coords.latitude;
-            document.getElementById("LatitudeA").value = lat;
-            var longa = position.coords.longitude;
-            document.getElementById("LongitudeA").value = long;
-        }
-    </script>
 </head>
 <body class="bg-list" style="margin-top:55px;">
 
@@ -144,6 +130,21 @@
                             output.innerHTML = this.value;
                         }
                     </script>
+                    <script>
+                        navigator.geolocation.getCurrentPosition(userPosition);
+
+                        function userPosition(position) {
+                            var lat = position.coords.latitude;
+                            document.getElementById("Latitude").value = lat;
+                            var long = position.coords.longitude;
+                            document.getElementById("Longitude").value = long;
+
+                            var lata = position.coords.latitude;
+                            document.getElementById("LatitudeA").value = lat;
+                            var longa = position.coords.longitude;
+                            document.getElementById("LongitudeA").value = long;
+                        }
+                    </script>
                 </div>
             </div>
         </div>
@@ -164,7 +165,7 @@
                     <form asp-action="Add" method="post" enctype="multipart/form-data">
 
                         <span>
-                            <input class="btn" type="file" id="userImg" name="userImg" value="" accept="image/*" />
+                            <input class="btn" type="file" id="userImg" name="userImg" value="" accept="image/jpg, image/jpeg, image/png, image/gif, video/webm" />
                         </span>
 
                         <input type="hidden" name="Latitude" id="LatitudeA" />
@@ -173,6 +174,22 @@
                         <button type="submit" class="btn btn-primary">Add</button>
 
                     </form>
+                    <script>
+                        navigator.geolocation.getCurrentPosition(userPosition);
+
+                        function userPosition(position) {
+                            var lat = position.coords.latitude;
+                            document.getElementById("Latitude").value = lat;
+                            var long = position.coords.longitude;
+                            document.getElementById("Longitude").value = long;
+
+                            var lata = position.coords.latitude;
+                            document.getElementById("LatitudeA").value = lat;
+                            var longa = position.coords.longitude;
+                            document.getElementById("LongitudeA").value = long;
+                        }
+                    </script>
+
                 </div>
             </div>
         </div>
