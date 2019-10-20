@@ -1,0 +1,14 @@
+﻿@{
+    var filePath = "wwwroot/Images/admin.jpg";
+}
+@if (System.IO.File.Exists(filePath))
+{
+    <div class="flex-fill px-4" style="text-align:center; width:100%">
+       
+        <div class="flex-fill px-4" style="text-align:center; width:100%">
+            <img class="img-fluid rounded" style="max-width:650px; width:100%" src="~/Images/admin.jpg" />
+            
+        </div>
+        <br /><br />
+    </div>
+}

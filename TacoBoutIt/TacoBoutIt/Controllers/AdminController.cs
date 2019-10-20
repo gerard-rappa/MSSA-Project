@@ -8,9 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 namespace TacoBoutIt.Controllers
 {
@@ -23,6 +24,42 @@ namespace TacoBoutIt.Controllers
             repository = repo;
         }
         public ViewResult Index() => View(repository.Memes.OrderByDescending(x => x));
+
+
+
+        [HttpPost]
+        public IActionResult AdminAdd()
+        {
+            
+            var files = HttpContext.Request.Form.Files;
+            string path = "wwwroot/Images/admin.jpg";
+            if (files.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                files[0].CopyTo(fileStream);
+            }
+            
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        public IActionResult AdminDelete()
+        {
+
+            string path = "wwwroot/Images/admin.jpg";
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
 
         [HttpPost]
         public async Task<IActionResult> DeleteAsync(string memeUrl)

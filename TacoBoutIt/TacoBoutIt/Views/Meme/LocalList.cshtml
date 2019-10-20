@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Meme>
 
+@Html.Partial("MyPartial")
+
 @foreach (var r in Model)
 {
     if (r.ImgUrl.Contains(".webm"))
