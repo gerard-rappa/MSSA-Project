@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WWStudent\\source\\repos\\gerard-rappa\\MSSA-Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj": {}
+    "C:\\Users\\user\\Desktop\\MSSA Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WWStudent\\source\\repos\\gerard-rappa\\MSSA-Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj": {
+    "C:\\Users\\user\\Desktop\\MSSA Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WWStudent\\source\\repos\\gerard-rappa\\MSSA-Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\MSSA Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj",
         "projectName": "TacoBoutIt",
-        "projectPath": "C:\\Users\\WWStudent\\source\\repos\\gerard-rappa\\MSSA-Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj",
-        "packagesPath": "C:\\Users\\WWStudent\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WWStudent\\source\\repos\\gerard-rappa\\MSSA-Project\\TacoBoutIt\\TacoBoutIt\\obj\\publish\\win-x86\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\MSSA Project\\TacoBoutIt\\TacoBoutIt\\TacoBoutIt.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\MSSA Project\\TacoBoutIt\\TacoBoutIt\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\WWStudent\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
