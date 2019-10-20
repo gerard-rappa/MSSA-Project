@@ -504,3 +504,7 @@ C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\WWStudent\Source\Repos\gerard-rappa\MSSA-Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\TacoBoutIt.csprojAssemblyReference.cache
+C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\bin\Debug\netcoreapp3.0\Microsoft.WindowsAzure.Storage.dll
+C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\user\Desktop\MSSA Project\TacoBoutIt\TacoBoutIt\obj\Debug\netcoreapp3.0\Razor\Views\Admin\Index.cshtml.g.cs
