@@ -19,43 +19,71 @@
                 }
             }
         });
-        //google.maps.event.addListener(map, 'click', function(event) {
-        //     placeMarker(event.latLng);
-        //});
+        //sets map to bermuda triangle if location is blocked, or while waiting for approval
+        map.setCenter({ lat: 25, lng: -71 });      
+        
+        //else grabs location
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
                 };
-                var eden = { lat: 32.819813, lng: -117.138764 };
-                var marker = new google.maps.Marker({ position: eden, map: map });
                 map.setCenter(pos);
-                var latArray = [];
-                var lonArray = [];
-              
-                @foreach(var taco in Model)
-                {
-                    @:latArray.push(@taco.Latitude);
-                    @:lonArray.push(@taco.Longitude);
-                }
-
-                for (var i = 0; i < latArray.length; i++) {
-                  eden = { lat: latArray[i], lng: lonArray[i] };
-                  marker = new google.maps.Marker({ position: eden, map: map });
-              }
-
             });
         }
+
+        var eden = { lat: 32.819813, lng: -117.138764 };
+        var marker = new google.maps.Marker({ position: eden, map: map });
+                
+        var latArray = [];
+        var lonArray = [];
+        var imgPath = [];
+              
+        @foreach(var taco in Model)
+        {
+            @:latArray.push(@taco.Latitude);
+            @:lonArray.push(@taco.Longitude);
+            @:imgPath.push("@taco.ImgUrl");
+        }
+
+        for (var i = 0; i < latArray.length; i++) {
+            addMarker({
+                coords: { lat: latArray[i], lng: lonArray[i] },
+                content: '<img style="max-width:100px; width:100%" src=https://litmemes.blob.core.windows.net/images/'+imgPath[i]+' /img>'
+            });
+
+
+            
+        }
+
+
     }
+    
+    //google.maps.event.addListener(map, 'click', function(event) {
+    //         placeMarker(event.latLng);
+    //    });
 
+    function addMarker(props) {
+        var marker = new google.maps.Marker({
+            position: props.coords,            
+            map: map
+        });
+        var window = new google.maps.InfoWindow({
+            content: props.content
+        });
+        marker.addListener('click', function () {
+            window.open(map, marker);
+        });
+    }
+    
 
-function placeMarker(location) {
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
-}
+    function placeMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBBSbNYenx3aUVJNQDujBpzACQcnJHfSg&callback=initMap">

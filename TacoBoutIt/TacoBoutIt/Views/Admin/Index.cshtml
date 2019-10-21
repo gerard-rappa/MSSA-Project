@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Admin Page";
-    var filePath = "wwwroot/Images/btn";
+    var filePath = "wwwroot/Images/admin.jpg";
 }
 <div class="bg-info p-2 row">
     <div class="col">
@@ -34,11 +34,15 @@
 
 @if (System.IO.File.Exists(filePath))
 {
-    <div class="flex-fill px-4" style="text-align:center; width:100%">
+<div class="flex-fill px-4" style="text-align:center; width:100%">
 
-        <h1>SUCCESS</h1>
+    <h3>STICKIED</h3>
+    <div class="flex-fill px-4" style="text-align:center; width:100%">
+        <img class="img-fluid rounded" style="max-width:400px; width:100%" src="~/Images/admin.jpg" />
 
     </div>
+
+</div>
 }
 
 
