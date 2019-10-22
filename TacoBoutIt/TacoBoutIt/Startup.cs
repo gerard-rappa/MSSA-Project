@@ -27,12 +27,8 @@ namespace TacoBoutIt
                 options.UseSqlServer(
                     Configuration["Data:TacoBoutItMemes:ConnectionString"]));
             //services.AddTransient<IMemeRepository, FakeMemeRepository>(); 
-            ////////////////////////////////////////////////////////////////
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration["Data:Identity:ConnectionString"]));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
-
-            //////////////////////////////////////////////////////////////////
-
             services.AddTransient<IMemeRepository, EFMemeRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
