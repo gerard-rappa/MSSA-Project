@@ -9,7 +9,7 @@
             streetViewControl: false,
             fullscreenControl: false,
             maxZoom: 10,
-            minZoom: 2,
+            minZoom: 5,
             restriction: {
                 latLngBounds: {
                     north: 85,
@@ -32,39 +32,41 @@
                 map.setCenter(pos);
             });
         }
-
-        var eden = { lat: 32.819813, lng: -117.138764 };
-        var marker = new google.maps.Marker({ position: eden, map: map });
-                
+               
         var latArray = [];
         var lonArray = [];
         var imgPath = [];
+        var markers = [];
               
         @foreach(var taco in Model)
         {
             @:latArray.push(@taco.Latitude);
             @:lonArray.push(@taco.Longitude);
             @:imgPath.push("@taco.ImgUrl");
-        }0
+        }
+
+       
 
         for (var i = 0; i < latArray.length; i++) {
             addMarker({
                 coords: { lat: latArray[i], lng: lonArray[i] },
                 content: '<img style="max-width:100px; width:100%" src=https://litmemes.blob.core.windows.net/images/'+imgPath[i]+' /img>'
-            });
+            }, markers);
 
-
+            
             
         }
 
+         // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            /*{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});*/
+            {imagePath: 'https://localhost:44392/ClusterImages/m'});
 
     }
     
-    //google.maps.event.addListener(map, 'click', function(event) {
-    //         placeMarker(event.latLng);
-    //    });
 
-    function addMarker(props) {
+
+    function addMarker(props, markers) {
         var marker = new google.maps.Marker({
             position: props.coords,            
             map: map
@@ -75,16 +77,22 @@
         marker.addListener('click', function () {
             window.open(map, marker);
         });
+        markers.push(marker);
     }
-    
 
-    function placeMarker(location) {
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-    }
+
+    //Adds markers to map on click
+    //google.maps.event.addListener(map, 'click', function(event) {
+    //         placeMarker(event.latLng);
+    //    });
+    //function placeMarker(location) {
+    //    var marker = new google.maps.Marker({
+    //        position: location,
+    //        map: map
+    //    });
+    //}
 </script>
+<script src="~/js/markerclusterer.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBBSbNYenx3aUVJNQDujBpzACQcnJHfSg&callback=initMap">
 </script>
