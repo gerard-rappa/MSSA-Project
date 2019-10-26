@@ -8,7 +8,7 @@
             zoom: 10,
             streetViewControl: false,
             fullscreenControl: false,
-            maxZoom: 15,
+            maxZoom: 10,
             minZoom: 5,
             restriction: {
                 latLngBounds: {
@@ -58,8 +58,7 @@
         }
 
          // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
-            /*{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});*/
+        var markerCluster = new MarkerClusterer(map, markers,            
             {imagePath: 'https://localhost:44392/ClusterImages/m'});
 
     }

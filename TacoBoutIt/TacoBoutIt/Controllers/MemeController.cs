@@ -132,12 +132,12 @@ namespace TacoBoutIt.Controllers
 
 
         [HttpPost]
-        public IActionResult LocalList(double Latitude, double Longitude, int miles)
+        public IActionResult LocalList(double Latitude, double Longitude, int stonesThrows)
         {            
             Location userLocation = new Location();
             userLocation.Latitude = Latitude;
             userLocation.Longitude = Longitude;
-            userLocation.Range = miles;
+            userLocation.Range = stonesThrows;
             
             if (userLocation.Latitude == 0 && userLocation.Longitude == 0)
             {
