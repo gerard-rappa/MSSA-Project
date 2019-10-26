@@ -350,19 +350,28 @@ MarkerClusterer.prototype.getMaxZoom = function () {
  *  @param {number} numStyles The number of styles available.
  *  @return {Object} A object properties: 'text' (string) and 'index' (number).
  *  @private
+ *  
+ *  text: count in the return value to see counts
+ *  
+ *  i believe the second parameter in parseInt() is the base of the numbers you are working with
+ *  in this example, clusters are incremented in powers of 2
+ *  dv = parseInt(dv / 2, 10);
+ *  
+ *  this would increment in powers of 5, etc.
+ *  dv = parseInt(dv / 5, 10);
  */
 MarkerClusterer.prototype.calculator_ = function (markers, numStyles) {
     var index = 0;
     var count = markers.length;
     var dv = count;
     while (dv !== 0) {
-        dv = parseInt(dv / 10, 10);
+        dv = parseInt(dv / 4, 10);
         index++;
     }
 
     index = Math.min(index, numStyles);
-    return {
-        text: count,
+    return {        
+        text: "",
         index: index
     };
 };

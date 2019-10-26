@@ -88,24 +88,24 @@
             <span class="navbar-toggler-icon"><img style="max-height:100%" src="~/Images/btn.png" /></span>
         </button>
         @*Collapsable parts*@
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <div>
-            <button type="button" class="btn" data-toggle="modal" data-target="#localModal">
-                Local Memes
-            </button>
-        </div>
-        <div>
-            <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
-                Add Meme
-            </button>
-        </div>
-        <div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div>
+                <button type="button" class="btn" data-toggle="modal" data-target="#localModal">
+                    Local Memes
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
+                    Add Meme
+                </button>
+            </div>
+            <div>
 
-            <a href="../Map/Index">
-                <input class="btn" type="button" value="Map" />
-            </a>
+                <a href="../Map/Index">
+                    <input class="btn" type="button" value="Map" />
+                </a>
+            </div>
         </div>
-    </div>
     </nav>
 
     @*Local Modal*@
@@ -168,7 +168,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form asp-action="Add" method="post" enctype="multipart/form-data">
+                    <form asp-controller="Meme" asp-action="Add" method="post" enctype="multipart/form-data">
 
                         <span>
                             <input class="btn" type="file" id="userImg" name="userImg" value="" accept="image/jpg, image/jpeg, image/png, image/gif, video/webm" />
