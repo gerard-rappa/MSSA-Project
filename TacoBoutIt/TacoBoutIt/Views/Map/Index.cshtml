@@ -33,7 +33,24 @@
                 map.setCenter(pos);
             });
         }
-               
+
+        //Bermuda Triangle Polygon
+        var triangleCoords = [
+          {lat: 25.774, lng: -80.190},
+          {lat: 18.466, lng: -66.118},
+          {lat: 32.321, lng: -64.757},
+          {lat: 25.774, lng: -80.190}
+        ];          
+        var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.2,
+          strokeWeight: 1,
+          fillColor: '#FF0000',
+          fillOpacity: 0.1
+        });
+        bermudaTriangle.setMap(map);
+        
         var latArray = [];
         var lonArray = [];
         var imgPath = [];
@@ -63,7 +80,7 @@
         var markerCluster = new MarkerClusterer(map, markers,            
             {
                 averageCenter: true,
-                imagePath: 'https://localhost:44392/ClusterImages/m'
+                imagePath: 'https://meme-me.azurewebsites.net/ClusterImages/m'
             });
 
     }

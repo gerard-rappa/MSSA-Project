@@ -1071,7 +1071,7 @@ ClusterIcon.prototype.triggerClusterClick = function () {
     else {
         var clusterCoords = this.cluster_.getCenter().toString().split(",");
         var infowindow = new google.maps.InfoWindow();
-        var str = "Check Out<br />These Memes!";
+        var str = "Check Out the memes here!";
         infowindow.setPosition(this.cluster_.getCenter());
         infowindow.setContent(str.link("https://meme-me.azurewebsites.net/Meme/LocalList?Latitude=" + clusterCoords[0].substr(1) + "&Longitude=" + clusterCoords[1].substring(1, (clusterCoords[1].length) - 1) + "&Range=35"));
         infowindow.open(map);
