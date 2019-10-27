@@ -939,6 +939,7 @@ Cluster.prototype.getSize = function () {
 };
 
 
+
 /**
  * Returns the center of the cluster.
  *
@@ -1062,9 +1063,20 @@ ClusterIcon.prototype.triggerClusterClick = function () {
     // Trigger the clusterclick event.
     google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
 
-    if (markerClusterer.isZoomOnClick()) {
-        // Zoom into the cluster.
+    //if too far out, zoom in
+    if (this.map_.getZoom() < 13) {
         this.map_.fitBounds(this.cluster_.getBounds());
+    }
+    //else link to localMemes with correct location and ~71-72 stones throws
+    else {
+        var clusterCoords = this.cluster_.getCenter().toString().split(",");
+        var infowindow = new google.maps.InfoWindow();
+        var str = "Check Out the memes here!";
+        infowindow.setPosition(this.cluster_.getCenter());
+        infowindow.setContent(str.link("https://meme-me.azurewebsites.net/Meme/LocalList?Latitude=" + clusterCoords[0].substr(1) + "&Longitude=" + clusterCoords[1].substring(1, (clusterCoords[1].length) - 1) + "&Range=35"));
+        infowindow.open(map);
+        setTimeout(function () { infowindow.close(); }, 5000);
+              
     }
 };
 

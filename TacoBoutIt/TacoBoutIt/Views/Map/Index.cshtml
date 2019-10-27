@@ -5,11 +5,12 @@
     var map;
     function initMap() {        
         map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
+            zoom: 5,
             streetViewControl: false,
             fullscreenControl: false,
-            maxZoom: 10,
+            maxZoom: 13,
             minZoom: 5,
+            clickableIcons: false,
             restriction: {
                 latLngBounds: {
                     north: 85,
@@ -50,7 +51,8 @@
         for (var i = 0; i < latArray.length; i++) {
             addMarker({
                 coords: { lat: latArray[i], lng: lonArray[i] },
-                content: '<img style="max-width:100px; width:100%" src=https://litmemes.blob.core.windows.net/images/'+imgPath[i]+' /img>'
+                //content: '<img style="max-width:100px; width:100%" src=https://litmemes.blob.core.windows.net/images/' + imgPath[i] + ' /img>'
+                content: imgPath[i]
             }, markers);
 
             
@@ -59,7 +61,10 @@
 
          // Add a marker clusterer to manage the markers.
         var markerCluster = new MarkerClusterer(map, markers,            
-            {imagePath: 'https://localhost:44392/ClusterImages/m'});
+            {
+                averageCenter: true,
+                imagePath: 'https://localhost:44392/ClusterImages/m'
+            });
 
     }
     
@@ -78,6 +83,10 @@
         });
         markers.push(marker);
     }
+
+    
+    
+
 
 
     //Adds markers to map on click
