@@ -166,6 +166,17 @@ function MarkerClusterer(map, opt_markers, opt_options) {
 
         if (that.prevZoom_ != zoom) {
             that.prevZoom_ = zoom;
+
+
+            //Changes the cluster size while zooming
+            if (that.map_.getZoom() <= 6) {
+                that.setGridSize(30);
+            }
+            else {
+                that.setGridSize(60);
+            }
+
+
             that.resetViewport();
         }
     });
@@ -1062,7 +1073,7 @@ ClusterIcon.prototype.triggerClusterClick = function () {
 
     // Trigger the clusterclick event.
     google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
-
+    
     //if too far out, zoom in
     if (this.map_.getZoom() < 13) {
         this.map_.fitBounds(this.cluster_.getBounds());
