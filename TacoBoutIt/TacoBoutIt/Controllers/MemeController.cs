@@ -37,14 +37,26 @@ namespace TacoBoutIt.Controllers
             string uploadedUri = null;
 
             string extension = "";
+
+            //checks if user tries to add nothing
             if (files.Count == 0)
+            {
+                return RedirectToAction("List");
+            }
+
+            //checks if user is trying to upload unaccepted file
+            // Only accepts jpg, png, gif, and webm as of right now
+            if (!string.Equals(files[0].ContentType, "image/jpg", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(files[0].ContentType, "image/jpeg", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(files[0].ContentType, "image/gif", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(files[0].ContentType, "image/png", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(files[0].ContentType, "video/webm", StringComparison.OrdinalIgnoreCase))
             {
                 return RedirectToAction("List");
             }
             ///////////////////////////////////////////////////////////////////////
             // Gets extension from uploaded file and adds it to uniquely generated image path
-            // Only accepts jpg, png, gif, and webm as of right now
-            ///////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////
             for (int i = files[0].FileName.Length - 1; i > 0; i--)
             {
                 if (files[0].FileName[i] == '.')
