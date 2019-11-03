@@ -1,8 +1,6 @@
 # Meme-Me
 [Check out the prototype!](https://meme-me.azurewebsites.net/)
 
-I have the actual code for the prototype in a private repository because of sensitive information regarding my Azure account. However, if you would like to see the up-to-date code, get in touch with me and I may grant you temporary access. 
-
 This repository showcases all the functionality while utilizing local storage. The up to date one utilizes Azure for blob storage for all of the files, as well as the databases which store the locations for all of the images in addition to their latitude and longitude, and another for user/password information for admins. 
 
 This is the start of a web app where anyone can upload memes to a site, essentially anonymously, and it can be filtered by only those posted nearby.
