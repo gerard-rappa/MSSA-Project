@@ -50,7 +50,7 @@ I also wanted some map functionality. Right now you can see where people are pos
 ![GitHub Logo](/gitImages/ClusterOnClick.JPG)
 
 ## [⮤](#index)Database Stuff
-This is the current state of my database. Simple. Elegant.
+This is the current state of my database. Simple. Elegant. I also have a database for users, but as of now, I am the only user, and its for the purpose of moderating content and posting sticky information. I may implement functionality for a wider user base in the future. 
 
 ![GitHub Logo](/gitImages/Database.JPG)
 
