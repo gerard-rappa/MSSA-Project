@@ -55,8 +55,7 @@ This is the current state of my database. Simple. Elegant. I also have a databas
 ![GitHub Logo](/gitImages/Database.JPG)
 
 ## [⮤](#index)Requirements Traceability
-This is a list of the tests that have been done, their status, and how/when they were last done.
-For a more in depth breakdown of the current/previous builds, a test list can be found at: [TRR 11/3/2019](https://github.com/atmarnat/TextForum/blob/master/TwaddleCate/README.md)
+This is a list of the tests that have been done, their status, and how/when they were last done.(https://github.com/atmarnat/TextForum/blob/master/TwaddleCate/README.md)
 
 | TestNo.      | Status     | Build     | TimeStamp | Requirement       | Test Description | Test Method | Test Procedure |
 | -----------: | :--------: | :-------: | :-------: | :---------------: | :--------------- | :---------: | :------------: |
