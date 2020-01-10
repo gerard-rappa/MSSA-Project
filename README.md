@@ -3,7 +3,7 @@
 This repository showcases all the functionality which utilizes Azure for blob storage for all of the files, as well as the databases which store the paths for all of the images in addition to their latitude and longitude, and another for user/password information for admins. 
 
 This is the start of a web app where anyone can upload memes to a site, essentially anonymously, and it can be filtered by only those posted nearby.
-Currently, if a user does not consent to sharing their location, the default location is in the middle of the Bermuda triangle.
+Currently, if a user does not consent to sharing their location, the default location is in the middle of the Bermuda triangle. 
 
 
 ## Index
